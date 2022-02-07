@@ -1,0 +1,5 @@
+pip install eel
+pip install eel[jinja2]
+pip install lxml
+pip install requests
+pip install beautifulsoup4

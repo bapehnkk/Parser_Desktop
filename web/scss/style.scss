@@ -1,0 +1,10 @@
+@import '_zeroing';
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1E2227;
+}
+
+@import '_main';

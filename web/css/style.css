@@ -1,0 +1,437 @@
+/* Zeroing */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: "Merriweather", serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1E2227;
+}
+
+.main {
+  background: #23272E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 3em;
+  border-radius: .3em;
+  font-size: 2em;
+  color: #CCCCCC;
+  margin: 30px 0px;
+  height: 100%;
+}
+
+.main__inp {
+  font-size: 1em;
+  margin-left: 1em;
+  background: none;
+  color: #CCCCCC;
+  border-bottom: 1px dashed #ccc;
+  height: 100%;
+}
+
+.site-inp {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.site-inp__inp {
+  font-size: 1em;
+  margin-left: 1em;
+  background: none;
+  color: #CCCCCC;
+  border-bottom: 1px dashed #ccc;
+}
+
+.div-input {
+  height: 100%;
+}
+
+.div-input .cross {
+  cursor: pointer;
+  margin-left: .3em;
+  display: inline-block;
+  width: .5em;
+  height: .5em;
+  overflow: visible;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.div-input .cross::before, .div-input .cross::after {
+  content: '';
+  position: absolute;
+  width: .01em;
+  height: .5em;
+  background: #fff;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.div-input .cross::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.div-input .cross::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.div-input .cross:active::before, .div-input .cross:active::after {
+  background: #df3947;
+}
+
+.selectors {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: 3em;
+  margin-bottom: 1em;
+}
+
+.selectors ul {
+  width: 100%;
+}
+
+.selectors ul .selectors_li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 2em;
+  margin-bottom: .3em;
+}
+
+.selectors__add-btn {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: .3em;
+  cursor: pointer;
+  border-radius: .3em;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.selectors__add-btn .cross {
+  cursor: pointer;
+  margin-left: .3em;
+  display: inline-block;
+  width: .5em;
+  height: .5em;
+  overflow: visible;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.selectors__add-btn .cross::before, .selectors__add-btn .cross::after {
+  content: '';
+  position: absolute;
+  width: .01em;
+  height: .5em;
+  background: #fff;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.selectors__add-btn .cross::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.selectors__add-btn:hover {
+  background: #2C313C;
+  color: #E06C75;
+}
+
+.selectors__add-btn:hover .cross::before, .selectors__add-btn:hover .cross::after {
+  width: .03em;
+  background: #E06C75;
+}
+
+.selectors__add-btn:hover .cross::before {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.selectors__add-btn:hover .cross::after {
+  -webkit-transform: scale(1.2) rotate(90deg);
+          transform: scale(1.2) rotate(90deg);
+}
+
+.selectors__add-btn:active {
+  color: #df3947;
+}
+
+.selectors__add-btn:active .cross::before, .selectors__add-btn:active .cross::after {
+  background: #df3947;
+}
+
+.multipage-parsing {
+  margin-bottom: 1em;
+}
+
+.multipage-parsing__true {
+  margin: 1em 0em;
+  display: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.multipage-parsing input[type='checkbox'] {
+  display: none;
+}
+
+.multipage-parsing__span {
+  cursor: pointer;
+}
+
+.multipage-parsing__span::before, .multipage-parsing__span::after {
+  content: '';
+  position: absolute;
+  width: .05em;
+  height: 1em;
+  background: #fff;
+  margin-left: 1em;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.multipage-parsing__span::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.multipage-parsing__span::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.multipage-parsing__span.active::before {
+  -webkit-transform: translate(0.27em, -0.075em) rotate(45deg);
+          transform: translate(0.27em, -0.075em) rotate(45deg);
+  height: 1em;
+}
+
+.multipage-parsing__span.active::after {
+  -webkit-transform: translate(-0.2015em, 0.316em) rotate(-35deg);
+          transform: translate(-0.2015em, 0.316em) rotate(-35deg);
+  height: .51em;
+}
+
+.multipage-parsing__span:hover::before, .multipage-parsing__span:hover::after {
+  background: #df3947;
+}
+
+.multipage-parsing .cross {
+  cursor: pointer;
+  margin-left: .3em;
+  display: inline-block;
+  width: .5em;
+  height: .5em;
+  overflow: visible;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.multipage-parsing .cross::before, .multipage-parsing .cross::after {
+  content: '';
+  position: absolute;
+  width: .01em;
+  height: .5em;
+  background: #fff;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.multipage-parsing .cross::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.multipage-parsing .cross::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.multipage-parsing .cross:active::before, .multipage-parsing .cross:active::after {
+  background: #df3947;
+}
+
+.parse {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parse__btn {
+  border-radius: .3em;
+  cursor: pointer;
+  font-size: 2em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  padding: .3em 1em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.parse__btn:hover {
+  background: #2C313C;
+  color: #E06C75;
+}
+
+.parse__btn:active {
+  color: #df3947;
+}

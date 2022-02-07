@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>File save</title>
+</head>
+
+<body>
+    <div id="content">My<br>custom<br>text</div>
+    <button id="save">сoхранить</button>
+    <script>
+        window.onload = function() {
+            document.getElementById('save').onclick = function() {
+                var a = document.createElement("a")
+                a.setAttribute("href", "data:text/plain," + document.getElementById('content').innerHTML.replace(/<br>/g, encodeURIComponent("\r\n")));
+                a.setAttribute("download", "filename.txt");
+                a.click();
+            };
+        };
+    </script>
+</body>
+
+</html>
