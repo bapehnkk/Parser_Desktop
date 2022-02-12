@@ -17,9 +17,9 @@
          "_style": null
       },
       {
-         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?order=price&amp;p=2&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80\">2</a>",
+         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&amp;p=2&amp;order=price\">2</a>",
          "_text": "2",
-         "_href": "/ru/buy/all/?order=price&p=2&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80",
+         "_href": "/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&p=2&order=price",
          "_id": null,
          "_class": [
             "pager__page"
@@ -32,9 +32,9 @@
          "_style": null
       },
       {
-         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?order=price&amp;p=3&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80\">3</a>",
+         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&amp;p=3&amp;order=price\">3</a>",
          "_text": "3",
-         "_href": "/ru/buy/all/?order=price&p=3&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80",
+         "_href": "/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&p=3&order=price",
          "_id": null,
          "_class": [
             "pager__page"
@@ -47,11 +47,11 @@
          "_style": null
       }
    ],
-   "https://www.okidoki.ee/ru/buy/all/?order=price&p=2&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80": [
+   "https://www.okidoki.ee/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&p=2&order=price": [
       {
-         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?order=price&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80\">1</a>",
+         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&amp;order=price\">1</a>",
          "_text": "1",
-         "_href": "/ru/buy/all/?order=price&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80",
+         "_href": "/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&order=price",
          "_id": null,
          "_class": [
             "pager__page"
@@ -80,9 +80,9 @@
          "_style": null
       },
       {
-         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?order=price&amp;p=3&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80\">3</a>",
+         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?p=3&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&amp;order=price\">3</a>",
          "_text": "3",
-         "_href": "/ru/buy/all/?order=price&p=3&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80",
+         "_href": "/ru/buy/all/?p=3&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&order=price",
          "_id": null,
          "_class": [
             "pager__page"
@@ -95,11 +95,11 @@
          "_style": null
       }
    ],
-   "https://www.okidoki.ee/ru/buy/all/?order=price&p=3&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80": [
+   "https://www.okidoki.ee/ru/buy/all/?p=3&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&order=price": [
       {
-         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?order=price&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80\">1</a>",
+         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&amp;order=price\">1</a>",
          "_text": "1",
-         "_href": "/ru/buy/all/?order=price&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80",
+         "_href": "/ru/buy/all/?query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&order=price",
          "_id": null,
          "_class": [
             "pager__page"
@@ -112,9 +112,9 @@
          "_style": null
       },
       {
-         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?order=price&amp;p=2&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80\">2</a>",
+         "_xml": "<a class=\"pager__page\" href=\"/ru/buy/all/?p=2&amp;query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&amp;order=price\">2</a>",
          "_text": "2",
-         "_href": "/ru/buy/all/?order=price&p=2&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80",
+         "_href": "/ru/buy/all/?p=2&query=%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80&order=price",
          "_id": null,
          "_class": [
             "pager__page"

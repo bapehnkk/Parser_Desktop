@@ -1,4 +1,4 @@
-class FileExport:
+class Conventer:
     # __slots__ = ('__path', '__urls', ' __pages')
     def __init__(self, pages, path='exported_files/data.json'):
         self.__path = path
