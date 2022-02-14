@@ -1,9 +1,13 @@
-Программа по парсингу сайтов с графическим интерфейсом на языке Python.
+Parsing Sites Program with Python Green Interface.
 
-Действия пользователя:
+User Response:
 
-1. Ввести название сайта
-2. Ввести класс/индекс/селектор (название) элемента, который он желает пропарсить
-3. Поставить галочку пропарсить на нескольких страницах
-4. Ввести название элемента, который является переходной ссылкой на последующую страницу
-5. Выбрать формат получаемого файла (xml, csv, json, sql…)
+1. Enter the site name
+2. Enter the class / index / selector (name) of the item that he wants to resist
+3. Put a tick to rest on multiple pages
+4. Enter the name of the element that is a transitional reference to the subsequent page
+5. Select the file format (XML, CSV, JSON, SQL ...)
+6. Press the PARSE button
+
+Testing:
+I used the pytest library. Tested in the Vscode program. Installed Python plugin (plugin ID: ms-python.python) and configured the test configuration in the program.

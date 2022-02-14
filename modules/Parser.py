@@ -1,26 +1,32 @@
+from asyncio.constants import SENDFILE_FALLBACK_READBUFFER_SIZE
 import selectors
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
+from urllib.parse import urljoin
 from .models import Page, HtmlItem as HI
 
 
 class Parser:
 
     HEADERS = {
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36', 'accept': '*/*'}
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
     def __init__(self, site_url, selectors=None, multipage=None, number_of_readable_pages=1000000):
-        self.__site_url = site_url  # last site
+        if self.check_site(site_url):
+            self.__site_url = site_url
+        else:
+            self.__site_url = None
         self.__selectors = selectors
         self.__multipage = multipage
-        self.__req = self.__get_request(url=self.__site_url)
+        
+        self.__req = None
         self.__pages = []
         self.__error = ''
         self.__there_is_the_following_page = True
         self.__counter = number_of_readable_pages
+        self.__all_urls = []
 
-        if self.__selectors == [''] or not isinstance(self.__selectors, list):
+        if self.__selectors == [''] or not isinstance(self.__selectors, list) or self.__selectors == []:
             self.__selectors = None
         if self.__selectors != None:
             for el in self.__selectors:
@@ -29,14 +35,29 @@ class Parser:
         if self.__multipage == '' or not isinstance(self.__multipage, str):
             self.__multipage = None
 
+    
+    def check_site(self, site_name):
+        try:
+            requests.get(site_name)
+            return True
+        except:
+            self.__error = 'Unknown site'
+            return False
+
+
+
     def print_error(self):
         print(self.__error)
         return self.__error
 
     def parse(self):
+        if self.__site_url == None:
+            return tuple([])
+        self.__req = self.__get_request(url=self.__site_url)
         try:
             counter = 1
             while self.__there_is_the_following_page and counter < self.__counter:
+
                 print(counter)
                 self.__error = ''
                 self.__there_is_the_following_page = False
@@ -67,31 +88,26 @@ class Parser:
                     if url_list != []:
                         # print(self.__site_url, soup.select(self.__multipage))
                         self.__check_url_for_next_page(
-                            url_list[-1].get('href'))
+                            urljoin(self.__site_url, url_list[-1].get('href')))
+
+                # print(counter, self.__all_urls)
 
                 counter += 1
         except Exception as e:
             self.__error = e
             print(e)
-        return self.__pages
+        return tuple(self.__pages)
 
     def __check_url_for_next_page(self, url):
+        # print('THIS URL\t', urljoin(self.__site_url, url))
         try:    # Check on the site link (with or without domain)
-            check = self.__site_url
             self.__get_request(url)
-            if check == self.__site_url:
-                self.__there_is_the_following_page = True
+            self.__site_url = url
+            if self.__site_url not in self.__all_urls:
+                self.__all_urls.append(self.__site_url)
+                self.__there_is_the_following_page = True            
         except:
-            try:    # http + :// + domain + link
-                check = self.__site_url
-                site_url = self.__site_url
-                site_url = urlparse(site_url).scheme + '://' + urlparse(
-                    site_url).netloc + url
-                self.__get_request(url=site_url)
-                if check == self.__site_url:
-                    self.__there_is_the_following_page = True
-            except:  # If the pages are graduated from:
-                self.__error = '''__check_url_for_next_page() return except (pages maybe they ended)'''
+            self.__error = '''__check_url_for_next_page() return except (pages maybe they ended)'''
 
     def __create_HtmlItem(self, item, s=None):
         return HI(
@@ -112,7 +128,7 @@ class Parser:
         req = requests.get(
             url, headers=self.HEADERS, params=params)
         self.__req = req
-        self.site_url =url
+        self.site_url = url
         return self.__req
         # print(self.__req)
 

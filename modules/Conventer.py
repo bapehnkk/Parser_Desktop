@@ -1,12 +1,12 @@
+from encodings import utf_8
+
+
 class Conventer:
     # __slots__ = ('__path', '__urls', ' __pages')
-    def __init__(self, pages, path='exported_files/data.json'):
-        self.__path = path
-        self.__urls = pages[0]
-        self.__pages = pages[-1]
-        
-        
-
+    def __init__(self, pages):
+        self.__pages = pages
+        self.__error = ''
+    
     def save_to_csv_file(self):
         import pandas as pd  
         self.file_clear()
@@ -27,16 +27,17 @@ class Conventer:
                 f.write(str([el.get_dict() for el in value])+'\n')
 
 
-    def export_to_json_file(self):
+    def export_to_json_file(self, path='exported_files/data.json'):
         import json
-        pages = dict(zip(self.__urls, ([el.get_dict() for el in page] for page in self.__pages)))
-        self.file_clear()
-        with open(self.__path, 'w') as f:    
-            json.dump(pages, f, indent=3)
+        self.file_clear(path)
+
+        with open(path, 'w', encoding='utf_8') as f:    
+            json.dump(tuple([el.get_dict() for el in self.__pages]), f, indent=3)
             # for key, value in pages.items():
                 # print(str(key)+'\n')
                 # print(str([el for el in value])+'\n')
+        return self.__error
 
-    def file_clear(self):
-        with open(self.__path, "w", encoding="utf-8") as f:
+    def file_clear(self, path):
+        with open(path, "w", encoding="utf-8") as f:
             f.write('')

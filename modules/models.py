@@ -1,7 +1,9 @@
-import json
+# import json
 from re import L
-from xml.dom.minidom import Element
-import pandas as pd
+from numpy import isin
+import requests
+# from xml.dom.minidom import Element
+# import pandas as pd
 
 
 class HtmlItem:
@@ -10,7 +12,7 @@ class HtmlItem:
 
     def __init__(self, _selector=None, _xml=None, _text=None, _href=None, _id=None, _class=None, _src=None, _alt=None, _type=None, _name=None, _title=None, _style=None):
         self._selector = _selector
-        self._xml = str(_xml)
+        self._xml = _xml if _xml == None else str(_xml)
         self._text = _text
         self._href = _href
         self._id = _id
@@ -23,7 +25,7 @@ class HtmlItem:
         self._style = _style
 
     def get_dict(self):
-        return {slot: getattr(self, slot) for slot in self.__slots__}
+        return {slot: getattr(self, slot) for slot in self.__slots__ if getattr(self, slot) != None}
 
     def get_list(self):
         return [self._selector, self._xml, self._text, self._href, self._id, self._class, self._src, self._alt, self._type, self._name, self._title, self._style]
@@ -31,22 +33,22 @@ class HtmlItem:
     def get_tuple(self):
         return self._selector, self._xml, self._text, self._href, self._id, self._class, self._src, self._alt, self._type, self._name, self._title, self._style
 
-    def get_json(self):
-        return json.dumps(self.get_dict()) + ','
+    # def get_json(self):
+    #     return json.dumps(self.get_dict()) + ','
 
-    def get_csv(self, format='dict'):
-        if format == 'list':
-            return pd.DataFrame(self.get_list())
-        elif format == 'tuple':
-            return pd.DataFrame(self.get_tuple())
-        else:
-            try:
-                return pd.DataFrame(self.get_dict())
-            except:
-                return pd.DataFrame(self.get_dict(), index=[0])
+    # def get_csv(self, format='dict'):
+    #     if format == 'list':
+    #         return pd.DataFrame(self.get_list())
+    #     elif format == 'tuple':
+    #         return pd.DataFrame(self.get_tuple())
+    #     else:
+    #         try:
+    #             return pd.DataFrame(self.get_dict())
+    #         except:
+    #             return pd.DataFrame(self.get_dict(), index=[0])
 
-    def get_xml(self):
-        return self._xml
+    # def get_xml_text(self):
+    #     return self._xml
 
     def get_sql_insert(self, db_table_name):
         # placeholders = ', '.join(['%s'] * len(self.get_dict()))
@@ -68,13 +70,43 @@ class HtmlItem:
 # print(el)
 
 class Page:
+    __slots__ = ('_Page__error', '_Page__url', '_Page__elements')
     def __init__(self, url, elements):
-        self.__url = url
-        self.__elements = list(filter(None, elements))  # Creating and sorting empty lists
+        self.__error = ''
+        self.__url = ''
+        self.__elements = tuple([])
+        if isinstance(url, (str)):
+            if self.check_site(url):
+                self.__url = url
+            else:
+                self.__error = 'This site does not open'
+        else:
+            self.__error = 'url is not string'
+        # Creating and sorting empty lists
+        try:
+            self.__elements = list(filter(None, elements))
+            self.__elements = tuple([[j.get_dict() for j in i] for i in self.__elements])
+        except:
+            self.__error = 'Incorrect data type (elements!=[[HtmlItem,...],...])'
+
+        
+    def print_error(self):
+        print(self.__error)
+        return self.__error
 
     def get_dict(self):
         # print([[j.get_dict() for j in i] for i in self.__elements])
         return {
             'url': self.__url,
-            'elements': tuple([[j.get_dict() for j in i] for i in self.__elements])
+            'elements': self.__elements, 
+            'error': self.__error
         }
+
+    def check_site(self, site_name):
+        try:
+            requests.get(site_name)
+            return True
+        except:
+            self.__error = 'Unknown site'
+            return False
+
