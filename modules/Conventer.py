@@ -1,4 +1,7 @@
+from distutils.command.config import dump_file
 from encodings import utf_8
+import os, eel
+from attrs import asdict
 
 
 class Conventer:
@@ -6,6 +9,10 @@ class Conventer:
     def __init__(self, pages):
         self.__pages = pages
         self.__error = ''
+        
+    def print_error(self):
+        print(self.__error)
+        return self.__error
     
     def save_to_csv_file(self):
         import pandas as pd  
@@ -27,12 +34,16 @@ class Conventer:
                 f.write(str([el.get_dict() for el in value])+'\n')
 
 
-    def export_to_json_file(self, path='exported_files/data.json'):
+    def export_to_json_file(self, path='web/exported_files/data.json'):
         import json
         self.file_clear(path)
 
         with open(path, 'w', encoding='utf_8') as f:    
             json.dump(tuple([el.get_dict() for el in self.__pages]), f, indent=3)
+            try:
+                eel.create_download_btn('exported_files/data.json')
+            except:
+                pass
             # for key, value in pages.items():
                 # print(str(key)+'\n')
                 # print(str([el for el in value])+'\n')

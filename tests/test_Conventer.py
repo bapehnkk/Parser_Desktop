@@ -9,7 +9,7 @@ def test_Conventer_сheck_for_similarity():
     C(P('https://www.google.com/').parse()).export_to_json_file()
 
     f1 = f2 = ''
-    with open('exported_files/data.json', 'r', encoding='utf_8') as f:
+    with open('web/exported_files/data.json', 'r', encoding='utf_8') as f:
         f1 = str(f.read())
     with open('tests/google_example.json', 'r', encoding='utf_8') as f:
         f2 = str(f.read())
@@ -25,7 +25,7 @@ def test_Conventer_difference_checking():
     C(P('https://en.wikipedia.org/').parse()).export_to_json_file()
 
     f1 = f2 = ''
-    with open('exported_files/data.json', 'r', encoding='utf_8') as f:
+    with open('web/exported_files/data.json', 'r', encoding='utf_8') as f:
         f1 = str(f.read())
     with open('tests/google_example.json', 'r', encoding='utf_8') as f:
         f2 = str(f.read())

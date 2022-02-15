@@ -38,8 +38,12 @@
                     Parse
                 </div>
             </div>
-            <!-- <a href="js/script.js" download="GFG"></a> -->
+            <div class="progress">
+                <h3 class="progress__title">Progress:</h3>
+            </div>
+            <div class="download-btn"></div>
         </div>
+        <div class="to-up"></div>
     </div>
 
     <script src="js/script.js"></script>
@@ -58,9 +62,43 @@
                 console.log(document.querySelector('#next-site-inp').value);
                 multipage = ''
             }
-
-            eel.my_python_function(url, selectors, multipage);
+            eel.press_parse(url, selectors, multipage);
         });
+
+
+        let i_progress = 0;
+        let color = Math.floor(Math.random() * 16777215).toString(16);
+        eel.expose(print_progress);
+
+        function print_progress(progress, counter) {
+            if (counter == 1) {
+                i_progress++
+                color = Math.floor(Math.random() * 16777215).toString(16);
+            }
+
+
+            let pr = '<div class="progress__site" style="color:#' + color + '">' + progress + '</div>';
+            document.querySelector('.progress').innerHTML += pr;
+            console.log("Progress:\t" + progress)
+        }
+
+        eel.expose(print_end);
+
+        function print_end(errors) {
+            alert('End');
+            console.log(errors);
+
+            document.querySelector('.progress').innerHTML += '<div class="progress__error">' +
+                '<div class="progress__error-title">Exceptions:</div>' +
+                '<div class="progress__error-list">' + errors + '</div>' +
+                '</div>';
+        }
+
+        eel.expose(create_download_btn);
+
+        function create_download_btn(path) {
+            document.querySelector('.download-btn').innerHTML = 'DOWNLOAD<a href="' + path + '" download></a>'
+        }
     </script>
 </body>
 

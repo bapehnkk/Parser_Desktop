@@ -1,4 +1,4 @@
-import eel
+import eel, os
 from modules.Parser import Parser as P
 from modules.Conventer import Conventer as C
 
@@ -7,16 +7,21 @@ def eel_():
     eel.start('main.html')
     
 @eel.expose
-def my_python_function(url, selectors=None, multipage=None):
+def press_parse(url, selectors=None, multipage=None, path=None):
+    errors = start_parse(url, selectors, multipage, path)
+    eel.print_end(errors)
+
+def start_parse(url, selectors=None, multipage=None, path=None):
     print(url, selectors, multipage)
     p = P(url, selectors=selectors, multipage=multipage)
     pages = p.parse()
-    p.print_error()
-    
-    with open('exported_files/data.txt', 'w', encoding="utf-8") as f:
-        f.write(str(tuple([el.get_dict() for el in pages])))
+    with open('web/exported_files/data.txt', 'w', encoding="utf-8") as f:
+        f.write(str(pages))
+    conv = C(pages)
+    conv.export_to_json_file()
 
-    C(pages).export_to_json_file()
+    return p.print_error(), conv.print_error()
+
 
 def main():
     eel_()

@@ -227,6 +227,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1em;
     &__btn {
         border-radius: .3em;
         cursor: pointer;
@@ -245,5 +246,108 @@
         &:active {
             color: #df3947;
         }
+    }
+}
+
+.progress {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1em;
+    &__title {
+        width: 100%;
+        font-size: 1.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: underline;
+    }
+    &__site {
+        font-size: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: .3em;
+    }
+    .progress__error {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .progress__error-title {}
+        .progress__error-list {}
+        margin-bottom: .5em;
+    }
+}
+
+.download-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    padding: 0.4em;
+    border-radius: .3em;
+    user-select: none;
+    color: #CCCCCC;
+    &:hover {
+        background: #2C313C;
+        color: #E06C75;
+    }
+    a {
+        display: none;
+    }
+    &:active {
+        font-size: 1.5em;
+        color: #df2535;
+    }
+}
+
+.to-up {
+    position: fixed;
+    height: 5em;
+    width: 5em;
+    background: #2C313C;
+    right: 1em;
+    bottom: .3em;
+    border-radius: 50%;
+    transform: scale(0.5);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    &:hover {
+        background: rgb(27, 30, 37);
+        &::before,
+        &::after {
+            background: #E06C75;
+        }
+        transform: scale(1);
+    }
+    &:active {
+        &::before,
+        &::after {
+            background: #df2535;
+        }
+    }
+    &::before,
+    &::after {
+        transition: all 0.3s ease 0s;
+        content: '';
+        position: absolute;
+        height: 50%;
+        width: 15%;
+        background: #fff;
+    }
+    &::before {
+        left: 35%;
+        top: 45%;
+        transform: translate(-35%, -50%) rotate(45deg);
+    }
+    &::after {
+        right: 35%;
+        top: 45%;
+        transform: translate(35%, -50%) rotate(-45deg);
     }
 }

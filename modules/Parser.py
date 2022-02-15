@@ -1,5 +1,5 @@
 from asyncio.constants import SENDFILE_FALLBACK_READBUFFER_SIZE
-import selectors
+import selectors, eel
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -12,16 +12,16 @@ class Parser:
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
     def __init__(self, site_url, selectors=None, multipage=None, number_of_readable_pages=1000000):
+        self.__error = ''
         if self.check_site(site_url):
             self.__site_url = site_url
         else:
             self.__site_url = None
         self.__selectors = selectors
         self.__multipage = multipage
-        
+
         self.__req = None
         self.__pages = []
-        self.__error = ''
         self.__there_is_the_following_page = True
         self.__counter = number_of_readable_pages
         self.__all_urls = []
@@ -35,7 +35,6 @@ class Parser:
         if self.__multipage == '' or not isinstance(self.__multipage, str):
             self.__multipage = None
 
-    
     def check_site(self, site_name):
         try:
             requests.get(site_name)
@@ -43,8 +42,6 @@ class Parser:
         except:
             self.__error = 'Unknown site'
             return False
-
-
 
     def print_error(self):
         print(self.__error)
@@ -57,7 +54,10 @@ class Parser:
         try:
             counter = 1
             while self.__there_is_the_following_page and counter < self.__counter:
-
+                try:
+                    eel.print_progress(self.__site_url, counter)
+                except:
+                    pass
                 print(counter)
                 self.__error = ''
                 self.__there_is_the_following_page = False
@@ -105,7 +105,7 @@ class Parser:
             self.__site_url = url
             if self.__site_url not in self.__all_urls:
                 self.__all_urls.append(self.__site_url)
-                self.__there_is_the_following_page = True            
+                self.__there_is_the_following_page = True
         except:
             self.__error = '''__check_url_for_next_page() return except (pages maybe they ended)'''
 

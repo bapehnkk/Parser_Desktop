@@ -43,3 +43,12 @@ document.querySelector('.multipage-parsing__span').addEventListener('click', eve
         document.querySelector('.multipage-parsing__span').classList.add('active');
     }
 });
+
+
+document.querySelector('.download-btn').addEventListener('click', event => {
+    document.querySelector('.download-btn a').click();
+});
+
+document.querySelector('.to-up').addEventListener('click', event => {
+    window.scrollTo(pageXOffset, 0);
+});

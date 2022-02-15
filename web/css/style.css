@@ -402,6 +402,7 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 1em;
 }
 
 .parse__btn {
@@ -434,4 +435,155 @@ h6 {
 
 .parse__btn:active {
   color: #df3947;
+}
+
+.progress {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.progress__title {
+  width: 100%;
+  font-size: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: underline;
+}
+
+.progress__site {
+  font-size: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: .3em;
+}
+
+.progress .progress__error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-bottom: .5em;
+}
+
+.download-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  padding: 0.4em;
+  border-radius: .3em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #CCCCCC;
+}
+
+.download-btn:hover {
+  background: #2C313C;
+  color: #E06C75;
+}
+
+.download-btn a {
+  display: none;
+}
+
+.download-btn:active {
+  font-size: 1.5em;
+  color: #df2535;
+}
+
+.to-up {
+  position: fixed;
+  height: 5em;
+  width: 5em;
+  background: #2C313C;
+  right: 1em;
+  bottom: .3em;
+  border-radius: 50%;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.to-up:hover {
+  background: #1b1e25;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.to-up:hover::before, .to-up:hover::after {
+  background: #E06C75;
+}
+
+.to-up:active::before, .to-up:active::after {
+  background: #df2535;
+}
+
+.to-up::before, .to-up::after {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  content: '';
+  position: absolute;
+  height: 50%;
+  width: 15%;
+  background: #fff;
+}
+
+.to-up::before {
+  left: 35%;
+  top: 45%;
+  -webkit-transform: translate(-35%, -50%) rotate(45deg);
+          transform: translate(-35%, -50%) rotate(45deg);
+}
+
+.to-up::after {
+  right: 35%;
+  top: 45%;
+  -webkit-transform: translate(35%, -50%) rotate(-45deg);
+          transform: translate(35%, -50%) rotate(-45deg);
 }
