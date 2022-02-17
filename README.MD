@@ -6,7 +6,7 @@ User Response:
 2. Enter the class / index / selector (name) of the item that he wants to resist
 3. Put a tick to rest on multiple pages
 4. Enter the name of the element that is a transitional reference to the subsequent page
-5. Select the file format (XML, CSV, JSON, SQL ...)
+5. Select the file format (XML, CSV, JSON, SQL ... (Only JSON))
 6. Press the PARSE button
 
 Testing:
