@@ -1,6 +1,7 @@
-import eel, os
+import eel
 from modules.Parser import Parser as P
 from modules.Conventer import Conventer as C
+
 
 def eel_():
     eel.init('web')
@@ -22,6 +23,12 @@ def start_parse(url, selectors=None, multipage=None, path=None):
 
     return p.print_error(), conv.print_error()
 
+# @eel.expose
+# def press_stop():
+#     print('This\r\n'*100)
+#     P.STOP = True
+#     print(P.STOP)
+
 
 def main():
     eel_()
@@ -29,7 +36,6 @@ def main():
 if __name__ == '__main__':
     print('\r\nStart')
     print('_'*100)
-
     main()
     print('_'*100, '\r\nEND')
     

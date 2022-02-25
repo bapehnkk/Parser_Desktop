@@ -1,6 +1,6 @@
 from distutils.command.config import dump_file
 from encodings import utf_8
-import os, eel
+import eel
 from attrs import asdict
 
 

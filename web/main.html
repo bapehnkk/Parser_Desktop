@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="parse">
+            <div class="parse active">
                 <div class="parse__btn">
                     Parse
                 </div>
@@ -48,22 +48,35 @@
 
     <script src="js/script.js"></script>
     <script>
-        document.querySelector('.parse > .parse__btn').addEventListener("click", function() {
-            url = document.querySelector('#site-inp').value;
-            let selectors = [];
-            let multipage = '';
-            try {
-                x = document.querySelectorAll('.selectors_li > div > input');
-                x.forEach(element => selectors.push(element.value));
-            } catch (e) {}
-            try {
-                multipage = document.querySelector('#next-site-inp').value;
-            } catch (e) {
-                console.log(document.querySelector('#next-site-inp').value);
-                multipage = ''
+        document.querySelector('.parse').addEventListener("click", function() {
+            let btn = document.querySelector('.parse');
+            if (btn.classList.contains('active')) {
+                btn.classList.remove('active');
+                btn.classList.add('disable');
+                url = document.querySelector('#site-inp').value;
+                let selectors = [];
+                let multipage = '';
+                try {
+                    x = document.querySelectorAll('.selectors_li > div > input');
+                    x.forEach(element => selectors.push(element.value));
+                } catch (e) {}
+                if (document.querySelector('.multipage-parsing input').checked == true) {
+                    try {
+                        multipage = document.querySelector('#next-site-inp').value;
+                    } catch (e) {
+                        console.log(document.querySelector('#next-site-inp').value);
+                        multipage = ''
+                    }
+                }
+                eel.press_parse(url, selectors, multipage);
+                document.querySelector('.parse__btn').innerHTML = 'Await';
+            } else {
+                alert('Await!');
+                // eel.press_stop();
             }
-            eel.press_parse(url, selectors, multipage);
         });
+
+
 
 
         let i_progress = 0;
@@ -92,6 +105,11 @@
                 '<div class="progress__error-title">Exceptions:</div>' +
                 '<div class="progress__error-list">' + errors + '</div>' +
                 '</div>';
+
+            let btn = document.querySelector('.parse.disable');
+            btn.classList.remove('disable');
+            btn.classList.add('active');
+            document.querySelector('.parse__btn').innerHTML = 'Parse';
         }
 
         eel.expose(create_download_btn);

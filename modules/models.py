@@ -1,9 +1,4 @@
-# import json
-from re import L
-from numpy import isin
 import requests
-# from xml.dom.minidom import Element
-# import pandas as pd
 
 
 class HtmlItem:

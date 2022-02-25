@@ -1,5 +1,4 @@
-from asyncio.constants import SENDFILE_FALLBACK_READBUFFER_SIZE
-import selectors, eel
+import eel
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -7,6 +6,7 @@ from .models import Page, HtmlItem as HI
 
 
 class Parser:
+    STOP = False
 
     HEADERS = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
@@ -53,7 +53,7 @@ class Parser:
         self.__req = self.__get_request(url=self.__site_url)
         try:
             counter = 1
-            while self.__there_is_the_following_page and counter < self.__counter:
+            while self.__there_is_the_following_page and counter < self.__counter and self.STOP == False:
                 try:
                     eel.print_progress(self.__site_url, counter)
                 except:
@@ -96,6 +96,8 @@ class Parser:
         except Exception as e:
             self.__error = e
             print(e)
+        if self.STOP:
+            self.__error += '\tThe stop button was pressed' 
         return tuple(self.__pages)
 
     def __check_url_for_next_page(self, url):
